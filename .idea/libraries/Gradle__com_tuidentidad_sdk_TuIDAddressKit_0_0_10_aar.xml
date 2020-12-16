@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.tuidentidad.sdk:TuIDAddressKit:0.0.10@aar" type="AndroidModuleLibraryType">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/98c7c729b30739d5f3bfc97126fa82fe/TuIDAddressKit-0.0.10/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/98c7c729b30739d5f3bfc97126fa82fe/TuIDAddressKit-0.0.10/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

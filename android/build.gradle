@@ -1,0 +1,64 @@
+group 'com.banlinea.tu_identidad'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.3.50'
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url 'https://jitpack.io'
+        }
+        maven {
+            url 'https://pkgs.dev.azure.com/tu-identidad/TuIdentidad-Android-SDK/_packaging/INE-SDK/maven/v1'
+        }
+        maven {
+            url 'https://pkgs.dev.azure.com/tu-identidad/TuIdentidad-Android-SDK/_packaging/Address-SDK/maven/v1'
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven {
+            url 'https://jitpack.io'
+        }
+        maven {
+            url 'https://pkgs.dev.azure.com/tu-identidad/TuIdentidad-Android-SDK/_packaging/INE-SDK/maven/v1'
+        }
+        maven {
+            url 'https://pkgs.dev.azure.com/tu-identidad/TuIdentidad-Android-SDK/_packaging/Address-SDK/maven/v1'
+        }
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 28
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    defaultConfig {
+        minSdkVersion 21
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.tuidentidad.ine:idval:1.10.7'
+    implementation 'com.tuidentidad.sdk:TuIDAddressKit:0.0.10'
+}
