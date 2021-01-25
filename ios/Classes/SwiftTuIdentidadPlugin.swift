@@ -61,10 +61,11 @@ public class SwiftTuIdentidadPlugin: NSObject, FlutterPlugin, IDValidationDelega
         let INEValidationQuality: Bool = arguments["INEValidationQuality"] as! Bool
         let INEValidationPatterns: Bool = arguments["INEValidationPatterns"] as! Bool
         let INEValidationCurp: Bool = arguments["INEValidationCurp"] as! Bool
+        let INEValidationFace: Bool = arguments["INEValidationFace"] as! Bool
         
         TUID.instantiateIDAuth(delegate: self, context: _controller, apikey: apiKey, method: INEMethod,
         showResults: showResults, validateOptions: IDValidateOptions(checkInfo: INEValidationInfo, checkQuality: INEValidationQuality,
-        checkPatterns: INEValidationPatterns, checkCurp: INEValidationCurp))
+        checkPatterns: INEValidationPatterns, checkCurp: INEValidationCurp, checkFace: INEValidationFace))
     }
     private func handleAddress(call: FlutterMethodCall, result: @escaping FlutterResult) {
         _result = result
