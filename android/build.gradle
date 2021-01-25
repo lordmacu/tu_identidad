@@ -59,6 +59,6 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.tuidentidad.ine:idval:1.10.9'
+    implementation 'com.tuidentidad.ine:idval:1.10.10'
     implementation 'com.tuidentidad.sdk:TuIDAddressKit:0.0.11'
 }
