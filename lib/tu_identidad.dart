@@ -18,6 +18,7 @@ class TuIdentidad {
     bool INEValidationQuality = true,
     bool INEValidationPatterns = true,
     bool INEValidationCurp = true,
+    bool INEValidationFace = true,
   }) async {
     final Map<String, dynamic> args = {
       "method": method ?? INE,
@@ -28,6 +29,7 @@ class TuIdentidad {
       "INEValidationQuality": INEValidationQuality ?? true,
       "INEValidationPatterns": INEValidationPatterns ?? true,
       "INEValidationCurp": INEValidationCurp ?? true,
+      "INEValidationFace": INEValidationFace ?? true,
     };
     final result = await _channel.invokeMethod('ine', args);
     return result;
