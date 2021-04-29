@@ -13,7 +13,7 @@ A new Flutter plugin.
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
-  s.source           = { :branch => 'master', :git => 'https://github.com/tu-identidad/tu-identidad-ios-sdk.git'}
+  s.source           = { :branch => 'develop', :git => 'https://github.com/tu-identidad/tu-identidad-ios-sdk.git'}
   s.source_files = 'Classes/**/*'
 
   s.dependency 'Flutter'
