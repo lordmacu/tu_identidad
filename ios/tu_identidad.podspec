@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'tu_identidad'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'A new Flutter plugin.'
   s.description      = <<-DESC
 A new Flutter plugin.
@@ -18,6 +18,7 @@ A new Flutter plugin.
 
   s.dependency 'Flutter'
   s.dependency 'TuIdentidadSDK', '~>1.1.5'
+  s.dependency 'TuIdentidadSDK/AddressKit', '~>1.1.5'
 
   s.ios.deployment_target = '10.0'
   s.platform = :ios, '10.0'
