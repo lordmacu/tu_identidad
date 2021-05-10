@@ -17,8 +17,8 @@ A new Flutter plugin.
   s.source_files = 'Classes/**/*'
 
   s.dependency 'Flutter'
-  s.dependency 'TuIdentidadSDK', '~>1.1.4'
-  s.dependency 'TuIdentidadSDK/AddressKit', '~>1.1.4'
+  s.dependency 'TuIdentidadSDK', '~>1.1.5'
+  s.dependency 'TuIdentidadSDK/AddressKit', '~>1.1.5'
 
   s.ios.deployment_target = '10.0'
   s.platform = :ios, '10.0'
