@@ -121,6 +121,7 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
                
                 result["inefPath"] = bitmapF
                 result["inebPath"] = bitmapB
+                result["todosss"] = bitmapB
 
                 mResult!!.success(result)
                 true
