@@ -108,6 +108,8 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
+        var bitmapF: Bitmap? = null
+        var bitmapB: Bitmap? = null
         if (requestCode == AUTHID_ACTIVITY_RESULT) {
             return if (resultCode == RESULT_OK) {
                 val result: MutableMap<String, Any?> = HashMap()
@@ -117,7 +119,8 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
                 result["error"] = extras.getString("error")
 
                 bitmapF = MediaStore.Images.Media.getBitmap(this.getContentResolver(), extras.getParcelable("inefPath"))
-                bitmapB = MediaStore.Images.Media.getBitmap(this.getContentResolver(), extras.getParcelable("inebPath"))  
+                bitmapB = MediaStore.Images.Media.getBitmap(this.getContentResolver(), extras.getParcelable("inebPath"))
+
                
                 result["inefPath"] = bitmapF
                 result["inebPath"] = bitmapB
