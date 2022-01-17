@@ -113,8 +113,12 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
                 result["status"] = extras.getBoolean("status")
                 result["response"] = extras.getString("response")
                 result["error"] = extras.getString("error")
-                result["inefPath"] = (extras.getParcelable("inefPath") as Uri).toString()
-                result["inebPath"] = (extras.getParcelable("inebPath") as Uri).toString()
+
+                bitmapF = MediaStore.Images.Media.getBitmap(this.getContentResolver(), extras.getParcelable("inefPath"))
+                bitmapB = MediaStore.Images.Media.getBitmap(this.getContentResolver(), extras.getParcelable("inebPath"))  
+               
+                result["inefPath"] = bitmapF
+                result["inebPath"] = bitmapB
 
                 mResult!!.success(result)
                 true
