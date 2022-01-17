@@ -15,6 +15,8 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.PluginRegistry.ActivityResultListener
 import java.util.*
+import android.provider.MediaStore;
+import android.content.Context;
 
 const val MY_SCAN_REQUEST_CODE = 100
 
