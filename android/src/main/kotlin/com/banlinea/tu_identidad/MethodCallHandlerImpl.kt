@@ -30,7 +30,7 @@ import io.flutter.plugin.common.PluginRegistry.Registrar
 
 const val MY_SCAN_REQUEST_CODE = 100
 
-class MethodCallHandlerImpl: MethodChannel.MethodCallHandler,MethodCallHandler, ActivityAware , ActivityResultListener{
+class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , ActivityResultListener{
 
     var act: Activity? = null
 
