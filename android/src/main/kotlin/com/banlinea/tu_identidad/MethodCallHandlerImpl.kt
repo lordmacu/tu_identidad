@@ -30,6 +30,16 @@ import io.flutter.plugin.common.PluginRegistry
 import io.flutter.plugin.common.PluginRegistry.Registrar
 import java.io.ByteArrayOutputStream
 
+ import android.graphics.BitmapFactory
+import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
+import android.util.Base64
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
+import java.io.ByteArrayOutputStream
+import java.io.IOException
+
+
 const val MY_SCAN_REQUEST_CODE = 100
 
 class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , ActivityResultListener{
@@ -142,13 +152,12 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
 
     }
 
-    private fun encodeImage(bm: Bitmap): String? {
+    fun BitMapToString(bitmap: Bitmap): String {
         val baos = ByteArrayOutputStream()
-        bm.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos)
         val b = baos.toByteArray()
         return Base64.encodeToString(b, Base64.DEFAULT)
     }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
 
 
@@ -172,7 +181,7 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
 
 
                val bitmap: Bitmap = MediaStore.Images.Media.getBitmap( context!!.contentResolver,(extras.getParcelable("inebPath") as Uri))
-                val base64String: String = encodeImage(bitmap)
+                val base64String: String = BitMapToString(bitmap)
 
 
                 // val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream((extras.getParcelable("inebPath") as Uri)))
