@@ -106,6 +106,10 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
 
     }
 
+    override fun getContext(): Context {
+        return registrar!!.context()
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
 
 
@@ -117,8 +121,8 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
                 val extras = data!!.extras!!
 
 
-                val bitmapF = MediaStore.Images.Media.getBitmap(applicationContext.contentResolver, extras.getParcelable("inefPath"))
-                val bitmapB = MediaStore.Images.Media.getBitmap(applicationContext.contentResolver, extras.getParcelable("inefPath"))
+                Toast.makeText(getContext(), errorMessage, Toast.LENGTH_LONG).show()
+
 
 
                 result["status"] = extras.getBoolean("status")
