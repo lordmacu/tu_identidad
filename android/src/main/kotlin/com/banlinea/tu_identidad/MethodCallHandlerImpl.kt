@@ -117,8 +117,8 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
                 val extras = data!!.extras!!
 
 
-                val bitmapF = MediaStore.Images.Media.getBitmap(Application().contentResolver, extras.getParcelable("inefPath"))
-                val bitmapB = MediaStore.Images.Media.getBitmap(Application().contentResolver, extras.getParcelable("inefPath"))
+                val bitmapF = MediaStore.Images.Media.getBitmap(applicationContext.contentResolver, extras.getParcelable("inefPath"))
+                val bitmapB = MediaStore.Images.Media.getBitmap(applicationContext.contentResolver, extras.getParcelable("inefPath"))
 
 
                 result["status"] = extras.getBoolean("status")
