@@ -123,7 +123,7 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
 
                 Toast.makeText(getContext(), errorMessage, Toast.LENGTH_LONG).show()
 
-
+                val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri)
 
                 result["status"] = extras.getBoolean("status")
                 result["response"] = extras.getString("response")
