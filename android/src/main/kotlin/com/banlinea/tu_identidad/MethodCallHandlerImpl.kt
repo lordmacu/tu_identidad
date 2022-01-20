@@ -21,11 +21,8 @@ const val MY_SCAN_REQUEST_CODE = 100
 
 class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultListener{
 
-    private var context: Context? = null
 
-    fun registerWith(registrar: Registrar) {
-        context = registrar.activity().getApplication()
-    }
+
 
     private lateinit var mActivityPluginBinding : ActivityPluginBinding
     var mResult : MethodChannel.Result? = null
@@ -132,12 +129,14 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
                 result["inefPath"] = (extras.getParcelable("inefPath") as Uri).toString()
                 result["inebPath"] = (extras.getParcelable("inebPath") as Uri).toString()
 
-              //  val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), (extras.getParcelable("inebPath") as Uri))
+
+            val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), (extras.getParcelable("inebPath") as Uri))
                /// result["sdfasdfasdf"] = bitmap
 
                 mResult!!.success(result)
                 true
             }else{
+
                 mResult!!.success(null)
                 false
             }
