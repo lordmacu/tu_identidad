@@ -121,15 +121,14 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
                 val extras = data!!.extras!!
 
 
-                Toast.makeText(getContext(), errorMessage, Toast.LENGTH_LONG).show()
 
-                val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri)
 
                 result["status"] = extras.getBoolean("status")
                 result["response"] = extras.getString("response")
                 result["error"] = extras.getString("error")
                 result["inefPath"] = (extras.getParcelable("inefPath") as Uri).toString()
                 result["inebPath"] = (extras.getParcelable("inebPath") as Uri).toString()
+                var bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), (extras.getParcelable("inefPath") as Uri));
 
                 mResult!!.success(result)
                 true
