@@ -160,8 +160,12 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
                 result["inebPath"] = (extras.getParcelable("inebPath") as Uri).toString()
 
 
-              val bitmap: Bitmap = MediaStore.Images.Media.getBitmap( act!!.contentResolver, extras.getParcelable("inebPath"))
-              //  result["sdfasdfasdf"] = bitmap
+             // val bitmap: Bitmap = MediaStore.Images.Media.getBitmap( act!!.contentResolver, extras.getParcelable("inebPath"))
+
+                val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream((extras.getParcelable("inebPath") as Uri)))
+
+
+                //  result["sdfasdfasdf"] = bitmap
                 act!!.contentResolver
 
                 mResult!!.success(result)
