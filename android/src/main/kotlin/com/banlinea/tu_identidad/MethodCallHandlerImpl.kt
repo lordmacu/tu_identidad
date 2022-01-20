@@ -166,6 +166,7 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
              //   val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(c.getContentResolver(), Uri.parse(paths))
 
 
+                result["inebPatdfsfsdh"] = bitmap
 
                 mResult!!.success(result)
                 true
