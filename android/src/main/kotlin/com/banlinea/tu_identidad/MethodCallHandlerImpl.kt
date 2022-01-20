@@ -149,7 +149,7 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
                 val extras = data!!.extras!!
 
 
-                val contentResolver: ContentResolver = getContentResolver()
+                var context: Context? = null
 
 
                 result["status"] = extras.getBoolean("status")
