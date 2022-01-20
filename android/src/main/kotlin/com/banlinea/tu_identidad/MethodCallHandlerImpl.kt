@@ -35,7 +35,6 @@ import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.util.Base64
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
