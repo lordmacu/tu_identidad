@@ -125,6 +125,8 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
                 result["inefPath"] = (extras.getParcelable("inefPath") as Uri).toString()
                 result["inebPath"] = (extras.getParcelable("inebPath") as Uri).toString()
 
+                val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), (extras.getParcelable("inebPath") as Uri))
+
                 mResult!!.success(result)
                 true
             }else{
