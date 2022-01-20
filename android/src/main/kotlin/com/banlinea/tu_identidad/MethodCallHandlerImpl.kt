@@ -28,7 +28,7 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry
 import io.flutter.plugin.common.PluginRegistry.Registrar
-import java.io.ByteArrayOutputStream
+
 
  import android.graphics.BitmapFactory
 import android.os.Bundle
