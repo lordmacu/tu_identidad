@@ -35,6 +35,14 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
 
     var act: Activity? = null
 
+    companion object {
+        @JvmStatic
+        fun registerWith(registrar: Registrar) {
+            val channel = MethodChannel(registrar.messenger(), "image_gallery_saver")
+            channel.setMethodCallHandler(ImageGallerySaverPlugin(registrar))
+        }
+    }
+
 
     private lateinit var mActivityPluginBinding : ActivityPluginBinding
     var mResult : MethodChannel.Result? = null
@@ -159,7 +167,7 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
                 result["inebPath"] = (extras.getParcelable("inebPath") as Uri).toString()
 
 
-             val bitmap: Bitmap = MediaStore.Images.Media.getBitmap( context!!.contentResolver,(extras.getParcelable("inebPath") as Uri))
+            // val bitmap: Bitmap = MediaStore.Images.Media.getBitmap( context!!.contentResolver,(extras.getParcelable("inebPath") as Uri))
 
                // val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream((extras.getParcelable("inebPath") as Uri)))
              //   val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(c.getContentResolver(), Uri.parse(paths))
