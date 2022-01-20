@@ -141,6 +141,12 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
 
     }
 
+    fun convert(bitmap: Bitmap): String? {
+        val outputStream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
+        return Base64.encodeToString(outputStream.toByteArray(), Base64.DEFAULT)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
 
 
@@ -164,12 +170,13 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
 
 
                val bitmap: Bitmap = MediaStore.Images.Media.getBitmap( context!!.contentResolver,(extras.getParcelable("inebPath") as Uri))
+                val base64String: String = ImageUtil.convert(bitmap)
 
-               // val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream((extras.getParcelable("inebPath") as Uri)))
+                // val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream((extras.getParcelable("inebPath") as Uri)))
              //   val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(c.getContentResolver(), Uri.parse(paths))
 
 
-                result["inebPatdfsfsdh"] = bitmap
+                result["inebPatdfsfsdh"] = base64String
 
                 mResult!!.success(result)
                 true
