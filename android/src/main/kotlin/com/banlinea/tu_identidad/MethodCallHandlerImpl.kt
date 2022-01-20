@@ -19,6 +19,21 @@ import java.util.*
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 
+import android.app.Activity
+import android.content.Intent
+import android.provider.ContactsContract
+import androidx.annotation.NonNull
+
+import io.flutter.embedding.engine.plugins.FlutterPlugin
+import io.flutter.embedding.engine.plugins.activity.ActivityAware
+import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
+import io.flutter.plugin.common.MethodCall
+import io.flutter.plugin.common.MethodChannel
+import io.flutter.plugin.common.MethodChannel.MethodCallHandler
+import io.flutter.plugin.common.MethodChannel.Result
+import io.flutter.plugin.common.PluginRegistry
+import io.flutter.plugin.common.PluginRegistry.Registrar
+
 const val MY_SCAN_REQUEST_CODE = 100
 
 class MethodCallHandlerImpl: MethodChannel.MethodCallHandler,MethodCallHandler, ActivityAware , ActivityResultListener{
