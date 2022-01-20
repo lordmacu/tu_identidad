@@ -153,10 +153,12 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
 
     fun BitMapToString(bitmap: Bitmap): String {
 
-        val baos = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
 
-        return "ok"
+
+        val baos = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos)
+        val b = baos.toByteArray()
+        return Base64.encodeToString(b, Base64.DEFAULT)
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
 
@@ -183,7 +185,12 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
                val bitmap: Bitmap = MediaStore.Images.Media.getBitmap( context!!.contentResolver,(extras.getParcelable("inebPath") as Uri))
                 val base64String: String = BitMapToString(bitmap)
 
-             //   result["inebPatdfsfsdh"] = bitmap
+
+                // val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream((extras.getParcelable("inebPath") as Uri)))
+             //   val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(c.getContentResolver(), Uri.parse(paths))
+
+
+                result["inebPatdfsfsdh"] = base64String
 
                 mResult!!.success(result)
                 true
