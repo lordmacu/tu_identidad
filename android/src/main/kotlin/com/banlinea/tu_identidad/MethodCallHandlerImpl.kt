@@ -106,10 +106,6 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
 
     }
 
-
-
-
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
 
 
@@ -120,12 +116,14 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
                 val result: MutableMap<String, Any?> = HashMap()
                 val extras = data!!.extras!!
 
+
+
+
                 result["status"] = extras.getBoolean("status")
                 result["response"] = extras.getString("response")
                 result["error"] = extras.getString("error")
                 result["inefPath"] = (extras.getParcelable("inefPath") as Uri).toString()
                 result["inebPath"] = (extras.getParcelable("inebPath") as Uri).toString()
-                //var bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), (extras.getParcelable("inefPath") as Uri));
 
                 mResult!!.success(result)
                 true
