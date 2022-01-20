@@ -33,6 +33,7 @@ const val MY_SCAN_REQUEST_CODE = 100
 class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , ActivityResultListener{
 
     var act: Activity? = null
+    private lateinit var context: Context
 
 
 
@@ -162,8 +163,10 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
 
              // val bitmap: Bitmap = MediaStore.Images.Media.getBitmap( act!!.contentResolver, extras.getParcelable("inebPath"))
 
-                val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream((extras.getParcelable("inebPath") as Uri)))
+               // val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream((extras.getParcelable("inebPath") as Uri)))
+             //   val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(c.getContentResolver(), Uri.parse(paths))
 
+                this.context = flutterPluginBinding.applicationContext
 
                 //  result["sdfasdfasdf"] = bitmap
                 act!!.contentResolver
