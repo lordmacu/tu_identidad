@@ -106,9 +106,9 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
 
     }
 
-    override fun getContext(): Context {
-        return registrar!!.context()
-    }
+
+
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
 
