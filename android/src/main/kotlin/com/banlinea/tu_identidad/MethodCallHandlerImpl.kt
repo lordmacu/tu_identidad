@@ -29,6 +29,11 @@ import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry
 import io.flutter.plugin.common.PluginRegistry.Registrar
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
+import java.io.ByteArrayOutputStream;
+
 const val MY_SCAN_REQUEST_CODE = 100
 
 class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , ActivityResultListener{
@@ -170,7 +175,7 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
 
 
                val bitmap: Bitmap = MediaStore.Images.Media.getBitmap( context!!.contentResolver,(extras.getParcelable("inebPath") as Uri))
-                val base64String: String = ImageUtil.convert(bitmap)
+                val base64String: String = convert(bitmap)
 
                 // val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream((extras.getParcelable("inebPath") as Uri)))
              //   val bitmap: Bitmap = MediaStore.Images.Media.getBitmap(c.getContentResolver(), Uri.parse(paths))
