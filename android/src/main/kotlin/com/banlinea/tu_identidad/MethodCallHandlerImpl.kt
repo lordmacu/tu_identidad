@@ -150,7 +150,6 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
                 val extras = data!!.extras!!
 
 
-                var context: Context? = null
 
 
                 result["status"] = extras.getBoolean("status")
