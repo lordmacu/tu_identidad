@@ -158,7 +158,7 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
                 result["error"] = extras.getString("error")
                 result["inefPath"] = (extras.getParcelable("inefPath") as Uri).toString()
                 result["inebPath"] = (extras.getParcelable("inebPath") as Uri).toString()
-
+                context.contentResolver
 
              // val bitmap: Bitmap = MediaStore.Images.Media.getBitmap( act!!.contentResolver, extras.getParcelable("inebPath"))
 
