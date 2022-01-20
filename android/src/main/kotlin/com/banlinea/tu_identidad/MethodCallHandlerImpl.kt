@@ -33,7 +33,6 @@ const val MY_SCAN_REQUEST_CODE = 100
 class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , ActivityResultListener{
 
     var act: Activity? = null
-    var context: Context = this.getApplicationContext()
 
 
     private lateinit var mActivityPluginBinding : ActivityPluginBinding
@@ -150,7 +149,7 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
                 val extras = data!!.extras!!
 
 
-
+                val contentResolver: ContentResolver = getContentResolver()
 
 
                 result["status"] = extras.getBoolean("status")
