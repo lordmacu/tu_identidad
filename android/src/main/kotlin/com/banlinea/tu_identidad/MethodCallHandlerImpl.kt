@@ -21,6 +21,12 @@ const val MY_SCAN_REQUEST_CODE = 100
 
 class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultListener{
 
+    private var context: Context? = null
+
+    fun registerWith(registrar: Registrar) {
+        context = registrar.activity().getApplication()
+    }
+
     private lateinit var mActivityPluginBinding : ActivityPluginBinding
     var mResult : MethodChannel.Result? = null
 
