@@ -1,22 +1,21 @@
 package com.banlinea.tu_identidad
 
 import android.app.Activity.RESULT_OK
+import android.app.Application
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
+import android.provider.MediaStore
 import androidx.annotation.NonNull
 import androidx.annotation.Nullable
 import com.tuid.idval.Models.method
-import com.tuid.idval.TuID.init
-import com.tuid.idval.TuID.INEValidation
-import com.tuid.idval.TuID.AUTHID_ACTIVITY_RESULT
+import com.tuid.idval.TuID.*
 import com.tuidentidad.address_sdk.AddressDocumentActivity
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.PluginRegistry.ActivityResultListener
 import java.util.*
-import android.provider.MediaStore;
-import android.content.Context;
 
 const val MY_SCAN_REQUEST_CODE = 100
 
@@ -108,23 +107,25 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultLis
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
-        var bitmapF: Bitmap? = null
-        var bitmapB: Bitmap? = null
+
+
         if (requestCode == AUTHID_ACTIVITY_RESULT) {
+
             return if (resultCode == RESULT_OK) {
+
                 val result: MutableMap<String, Any?> = HashMap()
                 val extras = data!!.extras!!
+
+
+                val bitmapF = MediaStore.Images.Media.getBitmap(Application().contentResolver, extras.getParcelable("inefPath"))
+                val bitmapB = MediaStore.Images.Media.getBitmap(Application().contentResolver, extras.getParcelable("inefPath"))
+
+
                 result["status"] = extras.getBoolean("status")
                 result["response"] = extras.getString("response")
                 result["error"] = extras.getString("error")
-
-                bitmapF = MediaStore.Images.Media.getBitmap(this.getContentResolver(), extras.getParcelable("inefPath"))
-                bitmapB = MediaStore.Images.Media.getBitmap(this.getContentResolver(), extras.getParcelable("inebPath"))
-
-               
-                result["inefPath"] = bitmapF
-                result["inebPath"] = bitmapB
-                result["todosss"] = bitmapB
+                result["inefPath"] = (extras.getParcelable("inefPath") as Uri).toString()
+                result["inebPath"] = (extras.getParcelable("inebPath") as Uri).toString()
 
                 mResult!!.success(result)
                 true
