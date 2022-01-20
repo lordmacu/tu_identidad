@@ -19,7 +19,7 @@ import java.util.*
 
 const val MY_SCAN_REQUEST_CODE = 100
 
-class MethodCallHandlerImpl: MethodChannel.MethodCallHandler , ActivityResultListener{
+class MethodCallHandlerImpl: MethodChannel.MethodCallHandler,MethodCallHandler, ActivityAware , ActivityResultListener{
 
     var act: Activity? = null
 
