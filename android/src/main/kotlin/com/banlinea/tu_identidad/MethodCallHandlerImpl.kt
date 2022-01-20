@@ -162,7 +162,7 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
 
              //   val bitmap: Bitmap = MediaStore.Images.Media.getBitmap( act!!.contentResolver, (extras.getParcelable("inebPath") as Uri))
               //  result["sdfasdfasdf"] = bitmap
-                contentResolver
+                activity!!.contentResolver
 
                 mResult!!.success(result)
                 true
