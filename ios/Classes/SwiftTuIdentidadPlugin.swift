@@ -84,8 +84,8 @@ public class SwiftTuIdentidadPlugin: NSObject, FlutterPlugin, IDValidationDelega
     }
     
     public func getINEData(data: IDValidationINE) {
-        let imageBase64Encode= data.ineFront.base64EncodedString(options: .lineLength64Characters)
-        let response = ["inefPathBase":imageBase64Encode,"name":data.validation.data.name, "firstLastName": data.validation.data.firstLastName,"secondLastName":data.validation.data.secondLastName, "addressLine1": data.validation.data.addressLine1,"addressLine2": data.validation.data.addressLine2,"addressLine3": data.validation.data.addressLine3, "electoralId":data.validation.data.electoralId, "curp": data.validation.data.curp, "dateOfBirth": data.validation.data.dateOfBirth, "sex": data.validation.data.sex, "folio": data.validation.data.folio, "idNumber": data.validation.data.idNumber, "idMex": data.validation.data.idMex, "mz1": data.validation.data.mz1, "mz2":data.validation.data.mz2, "mz3":data.validation.data.mz3, "expirationDate" :data.validation.data.expirationDate];
+        let imageBase64Encode = data.ineFront.base64EncodedString(options: .lineLength64Characters)
+        let response = ["inefPathBase":imageBase64Encode, "name":data.validation.data.name, "firstLastName": data.validation.data.firstLastName,"secondLastName":data.validation.data.secondLastName, "addressLine1": data.validation.data.addressLine1,"addressLine2": data.validation.data.addressLine2,"addressLine3": data.validation.data.addressLine3, "electoralId":data.validation.data.electoralId, "curp": data.validation.data.curp, "dateOfBirth": data.validation.data.dateOfBirth, "sex": data.validation.data.sex, "folio": data.validation.data.folio, "idNumber": data.validation.data.idNumber, "idMex": data.validation.data.idMex, "mz1": data.validation.data.mz1, "mz2":data.validation.data.mz2, "mz3":data.validation.data.mz3, "expirationDate" :data.validation.data.expirationDate];
         _result!(response)
     }
     
