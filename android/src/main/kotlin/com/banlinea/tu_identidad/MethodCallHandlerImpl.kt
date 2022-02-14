@@ -102,13 +102,13 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
             apiKey = call.argument("apiKey")?:""
         }
 
-        var INEMethod = method.INE
+        var INEMethod = method.INEv2
         if (call.hasArgument("method")) {
             INEMethod = when(call.argument("method")?:""){
-                "INE" -> method.INE
+                "INE" -> method.INEv2
                 "IDVAL" -> method.IDVAL
                 "ONLYOCR" -> method.ONLYOCR
-                else -> method.INE
+                else -> method.INEv2
             }
         }
 
@@ -132,7 +132,7 @@ class MethodCallHandlerImpl: MethodChannel.MethodCallHandler, ActivityAware , Ac
             INEValidationCurp = call.argument("INEValidationCurp")?:true
         }
 
-        init(mActivityPluginBinding.activity, showTutorial, showResults, apiKey, INEMethod, INEValidation(INEValidationInfo, INEValidationQuality, INEValidationPatterns, INEValidationCurp))
+        init(mActivityPluginBinding.activity, false, false, apiKey, INEMethod, INEValidation(true, true, true, true,true))
     }
 
     private fun handleAddress(call: MethodCall, result: MethodChannel.Result) {
